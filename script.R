@@ -20,6 +20,8 @@ parking <- read.csv("almere_parking.csv")
 
 library(randomcoloR)
 
+library(RColorBrewer) # toegevoegd
+
 library(ggplot2)
 library(plotly)
 
@@ -38,9 +40,15 @@ park_sub <- filter(park,
                    as.Date(updated) > as.Date("2019-10-1"),
                    as.Date(updated) < as.Date("2019-10-8")
                    )
+# ggplot(park_sub, aes(x = updated, y=parked, col=label)) +
+#   geom_line() +
+#   scale_colour_manual(values = randomColor(nlevels(park$label), "blue")) +
+#   theme_bw()
+
+# code ggplot toegevoegd
 ggplot(park_sub, aes(x = updated, y=parked, col=label)) +
   geom_line() +
-  scale_colour_manual(values = randomColor(nlevels(park$label), "blue")) +
+  scale_colour_manual(values = brewer.pal(nlevels(park$label), "BrBG")) +
   theme_bw()
 
 
