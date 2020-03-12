@@ -23,6 +23,7 @@ library(randomcoloR)
 library(ggplot2)
 library(plotly)
 
+# commentaar toevoegen
 
 library(lubridate)
 
